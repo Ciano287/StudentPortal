@@ -26,17 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout.LayoutParams layoutParams;
-    LinearLayout linearLayout;
+
     static String URL_NAME = "com.example.studentportal.MainActivity.url_name";
-    TextView textViewGoogle;
-    TextView textViewVLO;
-    TextView textViewRooster;
-    TextView textViewDMCI;
-    Intent intent;
-    String url;
-    String title;
-    boolean checkC;
     Toolbar toolbar;
     PortalAdapter mAdapter;
     List<PortalObject> mPortalList;
@@ -51,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
-        final String GOOGLE = getString(R.string.google_url);
         final String VLO = getString(R.string.vlo_url);
         final String ROOSTER = getString(R.string.rooster_url);
         final String DMCI = getString(R.string.dmci_url);
@@ -66,30 +56,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-//        textViewVLO.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-//                intent.putExtra(URL_NAME, VLO);
-//                startActivity(intent);
-//            }
-//        });
-//        textViewDMCI.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-//                intent.putExtra(URL_NAME, DMCI);
-//                startActivity(intent);
-//            }
-//        });
-//        textViewRooster.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-//                intent.putExtra(URL_NAME, ROOSTER);
-//                startActivity(intent);
-//            }
-//        });
         mPortalList.add(new PortalObject("Rooster",ROOSTER));
         mPortalList.add(new PortalObject("VLO",VLO));
         mPortalList.add(new PortalObject("DMCI",DMCI));
@@ -174,34 +140,13 @@ public class MainActivity extends AppCompatActivity {
                 assert data != null;
                 final String title = data.getStringExtra(AddPortal.TITLE);
                 final String url = data.getStringExtra(AddPortal.URL);
-                final int WIDTH = 300;
-                final int HEIGHT = 300;
+
                 PortalObject portalObject = new PortalObject(title,url);
 
                 mPortalList.add(portalObject);
                 mAdapter.notifyDataSetChanged();
                 updateUI();
 
-
-
-
-//                TextView mtextView = new TextView(this);
-//                linearLayout = findViewById(R.id.linearLayout);
-//
-//                mtextView.setLayoutParams(new LinearLayout.LayoutParams(WIDTH, HEIGHT));
-//                mtextView.setText(title);
-//                mtextView.setTextSize(20);
-//                linearLayout.addView(mtextView);
-
-
-//                mtextView.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-//                        intent.putExtra(URL_NAME, url);
-//                        startActivity(intent);
-//                    }
-//                });
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.example.studentportal;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,9 +12,8 @@ public class AddPortal extends AppCompatActivity {
     TextView inputUrl;
     TextView inputTitle;
     Button addPortalButton;
-    static String NUMMER;
-    static String TITLE;
-    static String URL;
+    static final String TITLE = "com.example.studentportal.title";
+    static String URL = "com.example.studentportal.url";
 
 
     @Override
@@ -25,10 +23,6 @@ public class AddPortal extends AppCompatActivity {
         inputUrl = findViewById(R.id.inputUrl);
         inputTitle = findViewById(R.id.inputTitle);
         addPortalButton = findViewById(R.id.addPortalButton);
-
-
-        TITLE = "com.example.studentportal.title";
-        URL = "com.example.studentportal.url";
 
         addPortalButton.setOnClickListener(new View.OnClickListener() {
             @Override
