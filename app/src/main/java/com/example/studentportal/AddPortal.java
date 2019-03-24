@@ -18,39 +18,34 @@ public class AddPortal extends AppCompatActivity {
     static String URL;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_portal);
         inputUrl = findViewById(R.id.inputUrl);
-        inputTitle =  findViewById(R.id.inputTitle);
+        inputTitle = findViewById(R.id.inputTitle);
         addPortalButton = findViewById(R.id.addPortalButton);
-
 
 
         TITLE = "com.example.studentportal.title";
         URL = "com.example.studentportal.url";
 
-      addPortalButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        addPortalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(AddPortal.this, MainActivity.class);
-                String TEXT = inputTitle.getText().toString();
-              String url = inputUrl.getText().toString();
-                 intent.putExtra(TITLE,url);
-               intent.putExtra(URL,TEXT);
-               setResult(RESULT_OK,intent);
-               finish();
-
-
+                String text = inputTitle.getText().toString();
+                String url = inputUrl.getText().toString();
+                intent.putExtra(TITLE, text);
+                intent.putExtra(URL, url);
+                setResult(RESULT_OK, intent);
+                finish();
 
 
             }
         });
 
     }
-
 
 
 }
